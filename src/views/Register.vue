@@ -3,7 +3,6 @@ import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { userRegister } from '../api/user/index'
-import PasswordInput from '../components/PasswordInput.vue'
 import { User } from '@element-plus/icons-vue'
 
 const registerFormRef = ref(null)

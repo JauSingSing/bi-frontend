@@ -11,23 +11,23 @@ export const useUserStore = defineStore('user', () => {
 
   // 登录
   async function login(loginForm) {
-    const response = await userLogin(loginForm)
-    token.value = response.token
-    id.value = response.id
-    username.value = response.userName
-    avatar.value = response.userAvatar
-    role.value = response.userRole
-    return response
+    const { data } = await userLogin(loginForm)
+    token.value = data.token
+    id.value = data.id
+    username.value = data.userName
+    avatar.value = data.userAvatar
+    role.value = data.userRole
+    return data
   }
 
   // 获取用户登录信息
   async function getUserInfo() {
-    const response = await getLoginInfo()
-    id.value = response.id
-    username.value = response.userName
-    avatar.value = response.userAvatar
-    role.value = response.userRole
-    return response
+    const { data } = await getLoginInfo()
+    id.value = data.id
+    username.value = data.userName
+    avatar.value = data.userAvatar
+    role.value = data.userRole
+    return data
   }
 
   // 退出登录

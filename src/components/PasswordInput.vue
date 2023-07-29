@@ -1,7 +1,7 @@
 <template>
   <el-input v-model="inputValue" :type="inputType" :prefix-icon="Lock">
     <template #suffix>
-      <el-icon>
+      <el-icon class="view-icon">
         <component :is="inputIcon" @click="toggleInputType"></component>
       </el-icon>
     </template>
@@ -47,3 +47,9 @@ function toggleInputType() {
   }
 }
 </script>
+
+<style scoped>
+.view-icon {
+  cursor: pointer;
+}
+</style>

@@ -63,6 +63,7 @@ function loginHandler() {
         <el-button :loading="loading" type="primary" class="login-btn" @click="loginHandler">登录</el-button>
       </el-form-item>
     </el-form>
+    <router-link :to="{ name: 'register' }">没有账号？去注册</router-link>
   </div>
 </template>
 
