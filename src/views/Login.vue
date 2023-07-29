@@ -1,9 +1,9 @@
 <script setup>
 import { ElMessage } from 'element-plus'
 import { reactive, ref } from 'vue'
-import { userLogin } from '../api/user/index'
 import { useRouter } from 'vue-router'
 import { User } from '@element-plus/icons-vue'
+import { useUserStore } from '../stores/user'
 
 
 const loginForm = reactive({
@@ -32,7 +32,8 @@ function loginHandler() {
   loginFormRef.value.validate(result => {
     if (!result) return
     loading.value = true
-    userLogin(loginForm).then(() => {
+    const { login } = useUserStore()
+    login(loginForm).then(() => {
       ElMessage.success('登录成功')
       router.push({ name: 'index' })
     }).finally(() => {

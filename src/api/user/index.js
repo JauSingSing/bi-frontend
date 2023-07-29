@@ -17,3 +17,19 @@ export function userLogin(data) {
     data
   })
 }
+
+// 获取用户信息
+export function getLoginInfo() {
+  return request({
+    url: '/user/get/login',
+    method: 'get' 
+  })
+}
+
+// 退出登录
+export function userLoginOut() {
+  return request({
+    url: '/user/logout',
+    method: 'post'
+  })
+}
