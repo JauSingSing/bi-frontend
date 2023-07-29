@@ -14,9 +14,9 @@ export const useUserStore = defineStore('user', () => {
     const response = await userLogin(loginForm)
     token.value = response.token
     id.value = response.id
-    username.value = response.username
-    avatar.value = response.avatar
-    role.value = response.role
+    username.value = response.userName
+    avatar.value = response.userAvatar
+    role.value = response.userRole
     return response
   }
 
@@ -24,9 +24,9 @@ export const useUserStore = defineStore('user', () => {
   async function getUserInfo() {
     const response = await getLoginInfo()
     id.value = response.id
-    username.value = response.username
-    avatar.value = response.avatar
-    role.value = response.role
+    username.value = response.userName
+    avatar.value = response.userAvatar
+    role.value = response.userRole
     return response
   }
 
