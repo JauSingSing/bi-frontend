@@ -1,6 +1,6 @@
 <template>
   <setion class="layout-setion">
-    <div style="width: var(--menu-width)"></div>
+    <div class="aside-placeholder"></div>
     <aside class="menu-aside">
       <Menu :routes="routes"></Menu>
     </aside>
@@ -37,11 +37,16 @@ import routes from '../router/routes'
   overflow: hidden;
   box-shadow: 2px 0 8px 0 rgba(29,35,41,.05);
 }
+.aside-placeholder {
+  width: var(--menu-width);
+  flex: 0 0 var(--menu-width);
+}
 .layout-container {
   position: relative;
   display: flex;
   flex-direction: column;
   flex: auto;
+  width: 0;
   min-height: 100vh;
   background-color: #f0f2f5;
 }

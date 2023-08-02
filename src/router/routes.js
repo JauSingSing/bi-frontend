@@ -24,6 +24,18 @@ const routes = [
     name: 'login',
     component: () => import('../views/Login.vue'),
     hidden: true
+  },
+  {
+    path: '/',
+    component: layout,
+    children: [
+      {
+        path: 'genChart',
+        name: 'genChart',
+        meta: { title: '生成图表' },
+        component: () => import('../views/genChart/index.vue')
+      }
+    ]
   }
 ]
 

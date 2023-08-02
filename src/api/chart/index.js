@@ -7,3 +7,16 @@ export function getChartList(data) {
     data
   })
 }
+
+// 生成报表
+export function getChartData(data) {
+  const formData = new FormData()
+  for (const key in data) {
+    formData.append(key, data[key])
+  }
+  return request({
+    url: '/chart/genChart',
+    method: 'post',
+    data: formData
+  })
+}
