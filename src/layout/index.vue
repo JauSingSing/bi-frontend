@@ -35,7 +35,7 @@ import routes from '../router/routes'
   z-index: 100;
   flex: 0 0 var(--menu-width);
   overflow: hidden;
-  box-shadow: 2px 0 8px 0 rgba(29,35,41,.05);
+  box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
 }
 .aside-placeholder {
   width: var(--menu-width);

@@ -1,10 +1,5 @@
 <template>
-  <el-form
-    ref="chartFormRef"
-    :model="chartForm"
-    :rules="chartFormRules"
-    label-width="100px"
-  >
+  <el-form ref="chartFormRef" :model="chartForm" :rules="chartFormRules" label-width="100px">
     <el-form-item label="分析目标" prop="goal">
       <el-input v-model="chartForm.goal"></el-input>
     </el-form-item>
@@ -40,10 +35,10 @@
 </template>
 
 <script setup>
-import { ElMessage } from "element-plus"
-import { reactive, ref } from "vue"
+import { ElMessage } from 'element-plus'
+import { reactive, ref } from 'vue'
 import { getChartData } from '../../../api/chart/index'
-import { genFileId } from "element-plus"
+import { genFileId } from 'element-plus'
 import { UploadFilled } from '@element-plus/icons-vue'
 
 const emit = defineEmits(['success'])
@@ -55,12 +50,7 @@ const chartForm = reactive({
   file: null
 })
 
-const chartTypeList = reactive([
-  '折线图',
-  '柱状图',
-  '饼图',
-  '雷达图'
-])
+const chartTypeList = reactive(['折线图', '柱状图', '饼图', '雷达图'])
 
 const fileList = ref([])
 
@@ -79,7 +69,6 @@ function handleExceed(files) {
   file.uid = genFileId()
   uploadRef.value.handleStart(file)
 }
-
 
 const loading = ref(false)
 

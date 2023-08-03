@@ -1,13 +1,14 @@
 <template>
   <header class="nav-header">
     <router-link :to="{ name: 'index' }">
-      <div class="header-logo"><img :src="logo" class="logo"/>
+      <div class="header-logo">
+        <img :src="logo" class="logo" />
         <span class="title">智能 BI 平台</span>
       </div>
     </router-link>
     <el-dropdown>
       <div class="user-info">
-        <img :src="userAvatar" class="user-avatar"/>
+        <img :src="userAvatar" class="user-avatar" />
         <span class="user-name">{{ userStore.username }}</span>
       </div>
       <template #dropdown>
@@ -20,10 +21,10 @@
 </template>
 
 <script setup>
-import { computed } from "vue"
-import { useUserStore } from "../../stores/user"
+import { computed } from 'vue'
+import { useUserStore } from '../../stores/user'
 import logo from '../../assets/logo.svg'
-import { SwitchButton } from "@element-plus/icons-vue"
+import { SwitchButton } from '@element-plus/icons-vue'
 
 const userStore = useUserStore()
 

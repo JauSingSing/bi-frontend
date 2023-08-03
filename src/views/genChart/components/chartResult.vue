@@ -10,7 +10,6 @@
 import BaseChart from '@/components/BaseChart.vue'
 
 defineProps(['chart', 'result'])
-
 </script>
 
 <style scoped>

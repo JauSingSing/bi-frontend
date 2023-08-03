@@ -11,7 +11,7 @@ const service = axios.create({
   timeout: 60 * 1000 // 1min
 })
 
-service.interceptors.response.use(response => {
+service.interceptors.response.use((response) => {
   if (response.data.code !== 0) {
     ElMessage.error(response.data.message)
     if (response.data.code === RES_CODE.NOT_LOGIN_ERROR) {

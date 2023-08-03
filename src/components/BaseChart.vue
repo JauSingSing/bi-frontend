@@ -1,5 +1,5 @@
 <template>
-  <div ref="chartRef" style="height: 300px;"></div>
+  <div ref="chartRef" style="height: 300px"></div>
 </template>
 
 <script setup>
@@ -39,7 +39,6 @@ function initChart() {
   } else {
     disposeChart()
   }
-
 }
 
 // 卸载图表

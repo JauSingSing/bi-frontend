@@ -43,15 +43,17 @@ function checkPasswordValidator(rule, value, callback) {
 
 // 注册处理函数
 function registerHandler() {
-  registerFormRef.value.validate(result => {
+  registerFormRef.value.validate((result) => {
     if (!result) return
     loading.value = true
-    userRegister(registerForm).then(() => {
-      ElMessage.success('注册成功')
-      router.push('/login')
-    }).finally(() => {
-      loading.value = false
-    })
+    userRegister(registerForm)
+      .then(() => {
+        ElMessage.success('注册成功')
+        router.push('/login')
+      })
+      .finally(() => {
+        loading.value = false
+      })
   })
 }
 </script>
@@ -66,19 +68,25 @@ function registerHandler() {
       @keyup.enter="registerHandler"
     >
       <el-form-item prop="userAccount">
-        <el-input v-model="registerForm.userAccount" :prefix-icon="User" placeholder="账号"></el-input>
+        <el-input
+          v-model="registerForm.userAccount"
+          :prefix-icon="User"
+          placeholder="账号"
+        ></el-input>
       </el-form-item>
-      
+
       <el-form-item prop="userPassword">
         <PasswordInput v-model="registerForm.userPassword" placeholder="密码"></PasswordInput>
       </el-form-item>
-      
+
       <el-form-item prop="checkPassword">
         <PasswordInput v-model="registerForm.checkPassword" placeholder="确认密码"></PasswordInput>
       </el-form-item>
-      
+
       <el-form-item>
-        <el-button :loading="loading" type="primary" class="register-btn" @click="registerHandler">注册</el-button>
+        <el-button :loading="loading" type="primary" class="register-btn" @click="registerHandler"
+          >注册</el-button
+        >
       </el-form-item>
       <router-link :to="{ name: 'login' }">已有账号？去登录</router-link>
     </el-form>
@@ -89,7 +97,7 @@ function registerHandler() {
 .container {
   min-width: 328px;
   max-width: 500px;
-  box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, .5);
+  box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 4px;
 }
