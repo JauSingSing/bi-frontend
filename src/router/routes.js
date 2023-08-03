@@ -1,4 +1,5 @@
 import layout from '../layout/index.vue'
+import LoginLayout from '../layout/loginLayout.vue'
 
 const routes = [
   {
@@ -14,16 +15,28 @@ const routes = [
     ]
   },
   {
-    path: '/register',
-    name: 'register',
-    component: () => import('../views/Register.vue'),
-    hidden: true
+    path: '/',
+    component: LoginLayout,
+    hidden: true,
+    children: [
+      {
+        path: '/register',
+        name: 'register',
+        component: () => import('../views/register.vue')
+      }
+    ]
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/Login.vue'),
-    hidden: true
+    path: '/',
+    component: LoginLayout,
+    hidden: true,
+    children: [
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('../views/Login.vue')
+      }
+    ]
   },
   {
     path: '/',

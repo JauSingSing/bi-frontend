@@ -43,8 +43,8 @@ function initChart() {
 
 // 卸载图表
 function disposeChart() {
-  if (!chartInstance.value) return
-  chartInstance.value.dispose()
-  chartInstance.value = null
+  if (!chartInstance) return
+  chartInstance.dispose()
+  chartInstance = null
 }
 </script>

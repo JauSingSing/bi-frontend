@@ -45,39 +45,23 @@ function loginHandler() {
 </script>
 
 <template>
-  <div class="container">
-    <h1 class="title">用户登录</h1>
-    <el-form ref="loginFormRef" :model="loginForm" :rules="formRules" @keyup.enter="loginHandler">
-      <el-form-item prop="userAccount">
-        <el-input v-model="loginForm.userAccount" :prefix-icon="User" placeholder="账号"></el-input>
-      </el-form-item>
-      <el-form-item prop="userPassword">
-        <PasswordInput v-model="loginForm.userPassword" placeholder="密码"></PasswordInput>
-      </el-form-item>
-      <el-form-item>
-        <el-button :loading="loading" type="primary" class="login-btn" @click="loginHandler"
-          >登录</el-button
-        >
-      </el-form-item>
-    </el-form>
-    <router-link :to="{ name: 'register' }">没有账号？去注册</router-link>
-  </div>
+  <el-form ref="loginFormRef" :model="loginForm" :rules="formRules" @keyup.enter="loginHandler">
+    <el-form-item prop="userAccount">
+      <el-input v-model="loginForm.userAccount" :prefix-icon="User" placeholder="账号"></el-input>
+    </el-form-item>
+    <el-form-item prop="userPassword">
+      <PasswordInput v-model="loginForm.userPassword" placeholder="密码"></PasswordInput>
+    </el-form-item>
+    <el-form-item>
+      <el-button :loading="loading" type="primary" class="login-btn" @click="loginHandler"
+        >登录</el-button
+      >
+    </el-form-item>
+  </el-form>
+  <router-link :to="{ name: 'register' }">没有账号？去注册</router-link>
 </template>
 
 <style scoped>
-.container {
-  min-width: 328px;
-  max-width: 500px;
-  box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 4px;
-}
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-}
 .login-btn {
   width: 100%;
 }

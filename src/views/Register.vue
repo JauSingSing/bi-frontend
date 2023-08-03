@@ -59,52 +59,38 @@ function registerHandler() {
 </script>
 
 <template>
-  <div class="container">
-    <h1 class="title">用户注册</h1>
-    <el-form
-      ref="registerFormRef"
-      :model="registerForm"
-      :rules="validateRules"
-      @keyup.enter="registerHandler"
-    >
-      <el-form-item prop="userAccount">
-        <el-input
-          v-model="registerForm.userAccount"
-          :prefix-icon="User"
-          placeholder="账号"
-        ></el-input>
-      </el-form-item>
+  <el-form
+    ref="registerFormRef"
+    :model="registerForm"
+    :rules="validateRules"
+    @keyup.enter="registerHandler"
+  >
+    <el-form-item prop="userAccount">
+      <el-input
+        v-model="registerForm.userAccount"
+        :prefix-icon="User"
+        placeholder="账号"
+      ></el-input>
+    </el-form-item>
 
-      <el-form-item prop="userPassword">
-        <PasswordInput v-model="registerForm.userPassword" placeholder="密码"></PasswordInput>
-      </el-form-item>
+    <el-form-item prop="userPassword">
+      <PasswordInput v-model="registerForm.userPassword" placeholder="密码"></PasswordInput>
+    </el-form-item>
 
-      <el-form-item prop="checkPassword">
-        <PasswordInput v-model="registerForm.checkPassword" placeholder="确认密码"></PasswordInput>
-      </el-form-item>
+    <el-form-item prop="checkPassword">
+      <PasswordInput v-model="registerForm.checkPassword" placeholder="确认密码"></PasswordInput>
+    </el-form-item>
 
-      <el-form-item>
-        <el-button :loading="loading" type="primary" class="register-btn" @click="registerHandler"
-          >注册</el-button
-        >
-      </el-form-item>
-      <router-link :to="{ name: 'login' }">已有账号？去登录</router-link>
-    </el-form>
-  </div>
+    <el-form-item>
+      <el-button :loading="loading" type="primary" class="register-btn" @click="registerHandler"
+        >注册</el-button
+      >
+    </el-form-item>
+    <router-link :to="{ name: 'login' }">已有账号？去登录</router-link>
+  </el-form>
 </template>
 
 <style scoped>
-.container {
-  min-width: 328px;
-  max-width: 500px;
-  box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 4px;
-}
-.title {
-  text-align: center;
-  margin-bottom: 10px;
-}
 .register-btn {
   width: 100%;
 }

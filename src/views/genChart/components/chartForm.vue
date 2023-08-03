@@ -20,6 +20,7 @@
       <el-upload
         ref="uploadRef"
         v-model:file-list="fileList"
+        :before-upload="validateFile"
         :auto-upload="false"
         :on-exceed="handleExceed"
         :limit="1"
@@ -54,6 +55,8 @@ const chartTypeList = reactive(['折线图', '柱状图', '饼图', '雷达图']
 
 const fileList = ref([])
 
+const MAX_SIZE = 5 // 文件最大 5 MB
+
 const chartFormRef = ref()
 
 const chartFormRules = {
@@ -79,9 +82,14 @@ async function genChart() {
     ElMessage.warning('请上传分析数据')
     return
   }
+  const file = fileList.value[fileList.value.length - 1]?.raw
+  if (file.size > 1024 * 1024 * MAX_SIZE) {
+    ElMessage.warning('文件大小超出限制，最大 5 M')
+    return
+  }
   const params = {
     ...chartForm,
-    file: fileList.value[fileList.value.length - 1]?.raw
+    file
   }
   loading.value = true
   try {

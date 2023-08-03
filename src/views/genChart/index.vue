@@ -1,11 +1,7 @@
 <template>
   <setion class="gen-chart">
     <chartForm @success="genSuccess"></chartForm>
-    <chartResult
-      v-if="chartInfo.genResult"
-      :chart="chartInfo.genChart"
-      :result="chartInfo.genResult"
-    ></chartResult>
+    <chartResult :chart="chartInfo.genChart" :result="chartInfo.genResult"></chartResult>
   </setion>
 </template>
 
@@ -20,7 +16,7 @@ const chartInfo = reactive({
 })
 
 function genSuccess(chartRes) {
-  chartInfo.genChart = JSON.parse(chartRes.genChart)
+  chartInfo.genChart = JSON.parse(chartRes.genChart || {})
   chartInfo.genResult = chartRes.genResult
 }
 </script>
