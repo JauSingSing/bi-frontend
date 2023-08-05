@@ -39,14 +39,21 @@ const routes = [
     ]
   },
   {
-    path: '/',
+    path: '/chart',
     component: layout,
+    meta: { title: '图表' },
     children: [
       {
-        path: 'genChart',
+        path: 'gen',
         name: 'genChart',
         meta: { title: '生成图表' },
         component: () => import('../views/genChart/index.vue')
+      },
+      {
+        path: 'list',
+        name: 'chartList',
+        meta: { title: '图表管理' },
+        component: () => import('../views/chartManagement/index.vue')
       }
     ]
   }
