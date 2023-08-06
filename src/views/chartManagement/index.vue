@@ -11,12 +11,12 @@
     <div v-for="chart in chartList" :key="chart.id" class="chart-card-container">
       <el-card :header="chart.name" class="chart-card">
         <p>{{ chart.goal }}</p>
-        <div style="margin: 16px 0; height: 300px">
+        <lazyLoad class="chart-content">
           <BaseChart v-if="chart.genChart" :option="chart.genChart"></BaseChart>
           <div v-else class="none-chart">
             <el-icon><PictureIcon /></el-icon>
           </div>
-        </div>
+        </lazyLoad>
         <details v-if="chart.genResult">
           <summary>分析结果</summary>
           <pre class="chart-result">{{ chart.genResult }}</pre>
@@ -38,6 +38,7 @@
 import { reactive, ref } from 'vue'
 import { getChartList } from '../../api/chart/index'
 import { Picture as PictureIcon } from '@element-plus/icons-vue'
+import lazyLoad from '../../components/lazyLoad/index.vue'
 
 const searchForm = reactive({
   searchValue: null,
@@ -94,6 +95,11 @@ getChartListData()
   color: var(--el-text-color-secondary);
   font-size: 30px;
 }
+.chart-content {
+  margin: 16px 0;
+  height: 300px;
+}
+
 @media screen and (max-width: 900px) {
   .chart-card-container {
     flex-basis: 100%;
